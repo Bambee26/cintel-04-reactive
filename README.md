@@ -1,8 +1,8 @@
 # Continuous Intelligence and Interactive Analytics - Reactive Apps
 
-- Interactive app: [cintel-04-reactive](https://denisecase.shinyapps.io/cintel-04-reactive/)
-- Repository: [cintel-04-reactive](https://github.com/denisecase/cintel-04-reactive)
-- Author: [Denise Case](https://github.com/denisecase)
+- Interactive app: [cintel-04-reactive](https://bambee26.shinyapps.io/cintel-04-reactive/)
+- Repository: [cintel-04-reactive](https://github.com/bambee26/cintel-04-reactive)
+- Author: [Denise Case](https://github.com/bambee26)
 
 -----
 

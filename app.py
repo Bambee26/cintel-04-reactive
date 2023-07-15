@@ -3,6 +3,8 @@ Purpose: Use Python to create a continuous intelligence and
 interactive analytics dashboard using Shiny for Python with 
 interactive charts from HoloViews Bokeh and Plotly Express.
 
+Author: Bambee Garfield
+
 Each Shiny app has two parts: 
 
 - a user interface app_ui object (similar to the HTML in a web page) 
