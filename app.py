@@ -62,12 +62,12 @@ app_ui = ui.page_navbar(
             get_relationships_outputs(),
         ),
     ),
-    ui.nav(ui.a("About", href="https://github.com/denisecase")),
-    ui.nav(ui.a("GitHub", href="https://github.com/denisecase/cintel-04-reactive")),
-    ui.nav(ui.a("App", href="https://denisecase.shinyapps.io/cintel-04-reactive/")),
+    ui.nav(ui.a("About", href="https://github.com/bambee26")),
+    ui.nav(ui.a("GitHub", href="https://github.com/bambee26/cintel-04-reactive")),
+    ui.nav(ui.a("App", href="https://bambee26.shinyapps.io/cintel-04-reactive/")),
     ui.nav(ui.a("Examples", href="https://shinylive.io/py/examples/")),
     ui.nav(ui.a("Widgets", href="https://shiny.rstudio.com/py/docs/ipywidgets.html")),
-    title=ui.h1("Case Dashboard"),
+    title=ui.h1("Bambee's Dashboard"),
 )
 
 
