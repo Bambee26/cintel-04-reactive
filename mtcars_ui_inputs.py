@@ -30,7 +30,7 @@ def get_mtcars_inputs():
         ui.input_checkbox("MTCARS_GEARS_5", "5", value=True),
         ui.input_radio_buttons(
             "MTCARS_TRANS",
-            "Select number of gears",
+            "Select transmission type:",
             {"a": "Automatic", "m": "Manual"},
             selected="a",
         ),

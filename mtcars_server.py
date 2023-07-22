@@ -35,30 +35,55 @@ def get_mtcars_server_functions(input, output, session):
     @reactive.event(
         input.MTCARS_MPG_RANGE,
         input.MTCARS_HP,
+        input.MTCARS_GEARS_3,
+        input.MTCARS_GEARS_4,
+        input.MTCARS_GEARS_5,
+        input.MTCARS_TRANS,
     )
     def _():
+        """Reactive effect to update the filtered dataframe when inputs change.
+        This is the only way to set a reactive value (after initialization).
+        It doesn't need a name, because no one calls it directly."""
+
+        # logger.info("UI inputs changed. Updating penguins reactive df")
+
         df = original_df.copy()
 
+        # MPG is a range
         input_range = input.MTCARS_MPG_RANGE()
         input_min = input_range[0]
         input_max = input_range[1]
+        MPG_filter = (df["mpg"] >= input_min) & (
+            df["mpg"] <= input_max
+        )
+        df = df[MPG_filter]
 
-        """
-        Filter the dataframe to just those greater than or equal to the min
-        and less than or equal to the max
-        Note: The ampersand (&) is the Python operator for AND
-        The column name is in quotes and is "mpg".
-        You must be familiar with the dataset to know the column names.
-        """
+        # HP is a max number
+        gross_hp_filter = df["gross_hp"] <= input.MTCARS_HP()
+        df = df[gross_hp_filter]
 
-        filtered_df = df[(df["mpg"] >= input_min) & (df["mpg"] <= input_max)]
+        # Gears is a list of checkboxes (a list of possible values)
+        show_gears_list = []
+        if input.MTCARS_GEARS_3():
+            show_gears_list.append("3")
+        if input. MTCARS_GEARS_4():
+            show_gears_list.append("4")
+        if input. MTCARS_GEARS_5():
+            show_gears_list.append("5")
+        show_gears_list = show_gears_list or ["3", "4", "5"]
+        gears_filter = df["gears"].isin(show_gears_list)
+        df = df[gears_filter]
 
-        # Gross HP length is a max number
-        gross_HP_filter = df["Gross horsepower"] <= input.MTCARS_HP()
-        df = df[gross_HP_filter]
-        
-        # Set the reactive value
-        reactive_df.set(filtered_df)
+        # Gender is a radio button
+        input_trans = input.MTCARS_TRANS()
+        trans_dict = {"a": "Automatic", "m": "Manual"}
+        if input_trans != "a":
+            trans_filter = df["trans"] == trans_dict[input_trans]
+            df = df[trans_filter]
+
+        # logger.debug(f"filtered cars df: {df}")
+        reactive_df.set(df)
+
 
     @output
     @render.text
