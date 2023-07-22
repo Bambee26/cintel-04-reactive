@@ -3,8 +3,6 @@ Purpose: Use Python to create a continuous intelligence and
 interactive analytics dashboard using Shiny for Python with 
 interactive charts from HoloViews Bokeh and Plotly Express.
 
-Author: Bambee Garfield
-
 Each Shiny app has two parts: 
 
 - a user interface app_ui object (similar to the HTML in a web page) 
@@ -30,17 +28,12 @@ from relationships_server import get_relationships_server_functions
 from relationships_ui_inputs import get_relationships_inputs
 from relationships_ui_outputs import get_relationships_outputs
 
-from iris_server import get_iris_server_functions
-from iris_ui_inputs import get_iris_inputs
-from iris_ui_outputs import get_iris_outputs
-
-
 from util_logger import setup_logger
 
 logger, logname = setup_logger(__name__)
 
 app_ui = ui.page_navbar(
-    shinyswatch.theme.lux(),
+    shinyswatch.theme.lumen(),
     ui.nav(
         "Flights",
         ui.layout_sidebar(
@@ -49,7 +42,7 @@ app_ui = ui.page_navbar(
         ),
     ),
     ui.nav(
-        "Cars",
+        "MT_Cars",
         ui.layout_sidebar(
             get_mtcars_inputs(),
             get_mtcars_outputs(),
@@ -69,13 +62,6 @@ app_ui = ui.page_navbar(
             get_relationships_outputs(),
         ),
     ),
-    ui.nav(
-        "Iris",
-        ui.layout_sidebar(
-            get_iris_inputs(),
-            get_iris_outputs(),
-        ),
-    ),
     ui.nav(ui.a("About", href="https://github.com/bambee26")),
     ui.nav(ui.a("GitHub", href="https://github.com/bambee26/cintel-04-reactive")),
     ui.nav(ui.a("App", href="https://bambee26.shinyapps.io/cintel-04-reactive/")),
@@ -93,7 +79,7 @@ def server(input, output, session):
     get_mtcars_server_functions(input, output, session)
     get_penguins_server_functions(input, output, session)
     get_relationships_server_functions(input, output, session)
-    get_iris_server_functions(input, output, session)
+
 
 # app = App(app_ui, server, debug=True)
 app = App(app_ui, server)
