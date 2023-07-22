@@ -59,7 +59,7 @@ def get_mtcars_server_functions(input, output, session):
         df = df[MPG_filter]
 
         # HP is a max number
-        gross_hp_filter = df["gross_hp"] <= input.MTCARS_HP()
+        gross_hp_filter = df["HP"] <= input.MTCARS_HP()
         df = df[gross_hp_filter]
 
         # Gears is a list of checkboxes (a list of possible values)
@@ -74,7 +74,7 @@ def get_mtcars_server_functions(input, output, session):
         gears_filter = df["gears"].isin(show_gears_list)
         df = df[gears_filter]
 
-        # Gender is a radio button
+        # Trans is a radio button
         input_trans = input.MTCARS_TRANS()
         trans_dict = {"a": "Automatic", "m": "Manual"}
         if input_trans != "a":
