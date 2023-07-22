@@ -33,7 +33,7 @@ from util_logger import setup_logger
 logger, logname = setup_logger(__name__)
 
 app_ui = ui.page_navbar(
-    shinyswatch.theme.minty(),
+    shinyswatch.theme.vapor(),
     ui.nav(
         "Flights",
         ui.layout_sidebar(
@@ -42,7 +42,7 @@ app_ui = ui.page_navbar(
         ),
     ),
     ui.nav(
-        "MT_Cars",
+        "Cars",
         ui.layout_sidebar(
             get_mtcars_inputs(),
             get_mtcars_outputs(),

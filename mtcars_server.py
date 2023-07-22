@@ -59,7 +59,7 @@ def get_mtcars_server_functions(input, output, session):
         df = df[MPG_filter]
 
         # HP is a max number
-        gross_hp_filter = df["HP"] <= input.MTCARS_HP()
+        gross_hp_filter = df["hp"] <= input.MTCARS_HP()
         df = df[gross_hp_filter]
 
         # Gears is a list of checkboxes (a list of possible values)
@@ -71,7 +71,7 @@ def get_mtcars_server_functions(input, output, session):
         if input. MTCARS_GEARS_5():
             show_gears_list.append("5")
         show_gears_list = show_gears_list or ["3", "4", "5"]
-        gears_filter = df["gears"].isin(show_gears_list)
+        gears_filter = df["gear"].isin(show_gears_list)
         df = df[gears_filter]
 
         # Trans is a radio button
@@ -105,7 +105,7 @@ def get_mtcars_server_functions(input, output, session):
     def mtcars_output_widget1():
         df = reactive_df.get()
         plotly_express_plot = px.scatter(df, x="mpg", y="hp", color="cyl", size="wt")
-        plotly_express_plot.update_layout(title="MT Cars with Plotly Express")
+        plotly_express_plot.update_layout(title="Cars with Plotly Express")
         return plotly_express_plot
 
     @output
@@ -113,7 +113,7 @@ def get_mtcars_server_functions(input, output, session):
     def mtcars_plot1():
         df = reactive_df.get()
         matplotlib_fig, ax = plt.subplots()
-        plt.title("MT Cars with matplotlib")
+        plt.title("Cars with matplotlib")
         ax.scatter(df["wt"], df["mpg"])
         return matplotlib_fig
 
@@ -124,7 +124,7 @@ def get_mtcars_server_functions(input, output, session):
         plotnine_plot = (
             ggplot(df, aes("wt", "mpg"))
             + geom_point()
-            + ggtitle("MT Cars with plotnine")
+            + ggtitle("Cars with plotnine")
         )
 
         return plotnine_plot
