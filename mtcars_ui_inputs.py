@@ -24,7 +24,7 @@ def get_mtcars_inputs():
             max=35,
             value=[10, 35],
         ),
-        ui.input_numeric("MTCARS_HP", "Gross Horsepower", value=335.0),
+        ui.input_numeric("MTCARS_HP", "Gross Horsepower", value=335),
         ui.input_checkbox("MTCARS_GEARS_3", "3", value=True),
         ui.input_checkbox("MTCARS_GEARS_4", "4", value=True),
         ui.input_checkbox("MTCARS_GEARS_5", "5", value=True),

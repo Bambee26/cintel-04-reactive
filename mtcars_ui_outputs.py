@@ -18,7 +18,7 @@ def get_mtcars_outputs():
             ui.output_plot("mtcars_plot1"),
             ui.output_plot("mtcars_plot2"),
             ui.tags.hr(),
-            ui.h3("Filtered MT Cars Table"),
+            ui.h3("Filtered Cars Table"),
             ui.output_text("mtcars_record_count_string"),
             ui.output_table("mtcars_filtered_table"),
             ui.tags.hr(),

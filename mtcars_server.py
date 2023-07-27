@@ -66,9 +66,9 @@ def get_mtcars_server_functions(input, output, session):
         show_gears_list = []
         if input.MTCARS_GEARS_3():
             show_gears_list.append("3")
-        if input. MTCARS_GEARS_4():
+        if input.MTCARS_GEARS_4():
             show_gears_list.append("4")
-        if input. MTCARS_GEARS_5():
+        if input.MTCARS_GEARS_5():
             show_gears_list.append("5")
         show_gears_list = show_gears_list or ["3", "4", "5"]
         gears_filter = df["gear"].isin(show_gears_list)
