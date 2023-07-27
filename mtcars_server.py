@@ -64,13 +64,13 @@ def get_mtcars_server_functions(input, output, session):
 
         # Gears is a list of checkboxes (a list of possible values)
         show_gears_list = []
-        if input.MTCARS_GEARS_3():
-            show_gears_list.append("3")
-        if input.MTCARS_GEARS_4():
-            show_gears_list.append("4")
-        if input.MTCARS_GEARS_5():
-            show_gears_list.append("5")
-        show_gears_list = show_gears_list or ["3", "4", "5"]
+        if input.MTCARS_GEARS_three():
+            show_gears_list.append("Three")
+        if input.MTCARS_GEARS_four():
+            show_gears_list.append("Four")
+        if input.MTCARS_GEARS_five():
+            show_gears_list.append("Five")
+        show_gears_list = show_gears_list or ["Three", "Four", "Five"]
         gears_filter = df["gear"].isin(show_gears_list)
         df = df[gears_filter]
 
@@ -88,8 +88,8 @@ def get_mtcars_server_functions(input, output, session):
     @output
     @render.text
     def mtcars_record_count_string():
-        filtered_df = reactive_df.get()
-        filtered_count = len(filtered_df)
+        #filtered_df = reactive_df.get()
+        filtered_count = len(reactive_df.get())
         message = f"Showing {filtered_count} of {total_count} records"
         # logger.debug(f"filter message: {message}")
         return message

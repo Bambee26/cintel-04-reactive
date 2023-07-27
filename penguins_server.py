@@ -35,7 +35,7 @@ def get_penguins_server_functions(input, output, session):
     # List all the inputs that should trigger this update
 
     @reactive.Effect
-    @reactive.event(
+    @reactive.event(    
         input.PENGUIN_BODY_MASS_RANGE,
         input.PENGUIN_MAX_BILL,
         input.PENGUIN_SPECIES_Adelie,
