@@ -35,9 +35,6 @@ def get_mtcars_server_functions(input, output, session):
     @reactive.event(
         input.MTCARS_MPG_RANGE,
         input.MTCARS_HP,
-        input.MTCARS_GEARS_3,
-        input.MTCARS_GEARS_4,
-        input.MTCARS_GEARS_5,
         input.MTCARS_TRANS,
     )
     def _():
@@ -63,16 +60,16 @@ def get_mtcars_server_functions(input, output, session):
         df = df[gross_hp_filter]
 
         # Gears is a list of checkboxes (a list of possible values)
-        show_gears_list = []
-        if input.MTCARS_GEARS_three():
-            show_gears_list.append("Three")
-        if input.MTCARS_GEARS_four():
-            show_gears_list.append("Four")
-        if input.MTCARS_GEARS_five():
-            show_gears_list.append("Five")
-        show_gears_list = show_gears_list or ["Three", "Four", "Five"]
-        gears_filter = df["gear"].isin(show_gears_list)
-        df = df[gears_filter]
+        #show_gears_list = []
+        #if input.MTCARS_GEARS_three():
+        #   show_gears_list.append("Three")
+        #if input.MTCARS_GEARS_four():
+        #    show_gears_list.append("Four")
+        #if input.MTCARS_GEARS_five():
+        #    show_gears_list.append("Five")
+        #show_gears_list = show_gears_list or ["Three", "Four", "Five"]
+        #gears_filter = df["gear"].isin(show_gears_list)
+        #df = df[gears_filter]
 
         # Trans is a radio button
         input_trans = input.MTCARS_TRANS()

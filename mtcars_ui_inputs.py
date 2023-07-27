@@ -25,9 +25,6 @@ def get_mtcars_inputs():
             value=[10, 35],
         ),
         ui.input_numeric("MTCARS_HP", "Gross Horsepower", value=335),
-        ui.input_checkbox("MTCARS_GEARS_three", "Three", value=True),
-        ui.input_checkbox("MTCARS_GEARS_four", "Four", value=True),
-        ui.input_checkbox("MTCARS_GEARS_five", "Five", value=True),
         ui.input_radio_buttons(
             "MTCARS_TRANS",
             "Transmission Type",
